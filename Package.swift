@@ -33,13 +33,13 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/candlefinance/swift-http-types", branch: "fix-candle-1.3.1"),
+        .package(url: "https://github.com/candlefinance/swift-http-types", name: "candle-swift-http-types", branch: "fix-candle-1.3.1"),
     ],
     targets: [
         .target(
             name: "CandleOpenAPIRuntime",
             dependencies: [
-                .product(name: "CandleHTTPTypes", package: "swift-http-types")
+                .product(name: "CandleHTTPTypes", package: "candle-swift-http-types")
             ],
             swiftSettings: swiftSettings
         ),
