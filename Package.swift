@@ -39,7 +39,7 @@ let package = Package(
         .target(
             name: "CandleOpenAPIRuntime",
             dependencies: [
-                .product(name: "CandleHTTPTypes", package: "swift-http-types")
+                .product(name: "CandleHTTPTypes",package: "candle-swift-http-types")
             ],
             swiftSettings: swiftSettings
         ),
