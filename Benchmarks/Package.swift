@@ -13,7 +13,7 @@ let package = Package(
             name: "OpenAPIRuntimeBenchmarks",
             dependencies: [
                 .product(name: "Benchmark", package: "package-benchmark"),
-                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "CandleOpenAPIRuntime", package: "swift-openapi-runtime"),
             ],
             path: "Benchmarks/OpenAPIRuntimeBenchmarks",
             plugins: [

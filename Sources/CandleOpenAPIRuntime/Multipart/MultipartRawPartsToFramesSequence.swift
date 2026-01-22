@@ -12,7 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-import HTTPTypes
+import CandleHTTPTypes
 import Foundation
 
 /// A sequence that serializes raw multipart parts into multipart frames.

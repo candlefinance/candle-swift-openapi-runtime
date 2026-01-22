@@ -28,8 +28,8 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "OpenAPIRuntime",
-            targets: ["OpenAPIRuntime"]
+            name: "CandleOpenAPIRuntime",
+            targets: ["CandleOpenAPIRuntime"]
         )
     ],
     dependencies: [
@@ -37,15 +37,15 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "OpenAPIRuntime",
+            name: "CandleOpenAPIRuntime",
             dependencies: [
-                .product(name: "HTTPTypes", package: "swift-http-types")
+                .product(name: "CandleHTTPTypes", package: "swift-http-types")
             ],
             swiftSettings: swiftSettings
         ),
         .testTarget(
             name: "OpenAPIRuntimeTests",
-            dependencies: ["OpenAPIRuntime"],
+            dependencies: ["CandleOpenAPIRuntime"],
             swiftSettings: swiftSettings
         ),
     ]

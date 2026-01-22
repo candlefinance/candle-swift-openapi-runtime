@@ -12,7 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 import Foundation
-import HTTPTypes
+import CandleHTTPTypes
 
 // MARK: - Functionality to be removed in the future
 

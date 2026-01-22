@@ -13,7 +13,7 @@
 //===----------------------------------------------------------------------===//
 import protocol Foundation.LocalizedError
 import struct Foundation.Data
-import HTTPTypes
+import CandleHTTPTypes
 
 /// Error thrown by generated code.
 internal enum RuntimeError: Error, CustomStringConvertible, LocalizedError, PrettyStringConvertible {
@@ -150,7 +150,7 @@ internal enum RuntimeError: Error, CustomStringConvertible, LocalizedError, Pret
 /// HTTP Response status definition for ``RuntimeError``.
 extension RuntimeError: HTTPResponseConvertible {
     /// HTTP Status code corresponding to each error case
-    public var httpStatus: HTTPTypes.HTTPResponse.Status {
+    public var httpStatus: CandleHTTPTypes.HTTPResponse.Status {
         switch self {
         case .invalidServerURL, .invalidServerVariableValue, .pathUnset: .notFound
         case .invalidExpectedContentType, .unexpectedContentTypeHeader: .unsupportedMediaType

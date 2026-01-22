@@ -12,7 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-import HTTPTypes
+import CandleHTTPTypes
 
 /// A frame of a multipart message, either the whole header fields
 /// section or a chunk of the body bytes.

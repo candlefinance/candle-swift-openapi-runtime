@@ -12,7 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-import HTTPTypes
+import CandleHTTPTypes
 import Foundation
 
 /// A sequence that parses multipart frames from bytes.

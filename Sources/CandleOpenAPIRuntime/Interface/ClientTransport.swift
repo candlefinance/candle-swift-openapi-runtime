@@ -12,7 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-import HTTPTypes
+import CandleHTTPTypes
 import struct Foundation.URL
 
 /// A type that performs HTTP operations.

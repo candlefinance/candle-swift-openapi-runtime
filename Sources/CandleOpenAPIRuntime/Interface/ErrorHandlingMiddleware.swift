@@ -12,7 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-import HTTPTypes
+import CandleHTTPTypes
 
 /// An opt-in error handling middleware that converts an error to an HTTP response.
 ///
@@ -48,13 +48,13 @@ public struct ErrorHandlingMiddleware: ServerMiddleware {
     public init() {}
     // swift-format-ignore: AllPublicDeclarationsHaveDocumentation
     public func intercept(
-        _ request: HTTPTypes.HTTPRequest,
-        body: OpenAPIRuntime.HTTPBody?,
-        metadata: OpenAPIRuntime.ServerRequestMetadata,
+        _ request: CandleHTTPTypes.HTTPRequest,
+        body: CandleOpenAPIRuntime.HTTPBody?,
+        metadata: CandleOpenAPIRuntime.ServerRequestMetadata,
         operationID: String,
-        next: @Sendable (HTTPTypes.HTTPRequest, OpenAPIRuntime.HTTPBody?, OpenAPIRuntime.ServerRequestMetadata)
-            async throws -> (HTTPTypes.HTTPResponse, OpenAPIRuntime.HTTPBody?)
-    ) async throws -> (HTTPTypes.HTTPResponse, OpenAPIRuntime.HTTPBody?) {
+        next: @Sendable (CandleHTTPTypes.HTTPRequest, CandleOpenAPIRuntime.HTTPBody?, CandleOpenAPIRuntime.ServerRequestMetadata)
+            async throws -> (CandleHTTPTypes.HTTPResponse, CandleOpenAPIRuntime.HTTPBody?)
+    ) async throws -> (CandleHTTPTypes.HTTPResponse, CandleOpenAPIRuntime.HTTPBody?) {
         do { return try await next(request, body, metadata) } catch {
             if let serverError = error as? ServerError,
                 let appError = serverError.underlyingError as? (any HTTPResponseConvertible)
@@ -82,17 +82,17 @@ public protocol HTTPResponseConvertible {
 
     /// The HTTP header fields of the response.
     /// This is optional as default values are provided in the extension.
-    var httpHeaderFields: HTTPTypes.HTTPFields { get }
+    var httpHeaderFields: CandleHTTPTypes.HTTPFields { get }
 
     /// The body of the HTTP response.
-    var httpBody: OpenAPIRuntime.HTTPBody? { get }
+    var httpBody: CandleOpenAPIRuntime.HTTPBody? { get }
 }
 
 extension HTTPResponseConvertible {
 
     // swift-format-ignore: AllPublicDeclarationsHaveDocumentation
-    public var httpHeaderFields: HTTPTypes.HTTPFields { [:] }
+    public var httpHeaderFields: CandleHTTPTypes.HTTPFields { [:] }
 
     // swift-format-ignore: AllPublicDeclarationsHaveDocumentation
-    public var httpBody: OpenAPIRuntime.HTTPBody? { nil }
+    public var httpBody: CandleOpenAPIRuntime.HTTPBody? { nil }
 }

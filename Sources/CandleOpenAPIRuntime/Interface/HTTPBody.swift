@@ -123,7 +123,7 @@ public final class HTTPBody: @unchecked Sendable {
 
     /// The iteration behavior, which controls how many times
     /// the input sequence can be iterated.
-    public let iterationBehavior: OpenAPIRuntime.IterationBehavior
+    public let iterationBehavior: CandleOpenAPIRuntime.IterationBehavior
 
     /// Describes the total length of the body, in bytes, if known.
     public enum Length: Sendable, Equatable {
@@ -182,7 +182,7 @@ public final class HTTPBody: @unchecked Sendable {
     @usableFromInline init(
         _ sequence: AnySequence<ByteChunk>,
         length: Length,
-        iterationBehavior: OpenAPIRuntime.IterationBehavior
+        iterationBehavior: CandleOpenAPIRuntime.IterationBehavior
     ) {
         self.sequence = sequence
         self.length = length
@@ -198,7 +198,7 @@ public final class HTTPBody: @unchecked Sendable {
     @usableFromInline convenience init(
         _ byteChunks: some Sequence<ByteChunk> & Sendable,
         length: Length,
-        iterationBehavior: OpenAPIRuntime.IterationBehavior
+        iterationBehavior: CandleOpenAPIRuntime.IterationBehavior
     ) {
         self.init(
             .init(WrappedSyncSequence(sequence: byteChunks)),
@@ -259,7 +259,7 @@ extension HTTPBody {
     @inlinable public convenience init(
         _ bytes: some Sequence<UInt8> & Sendable,
         length: Length,
-        iterationBehavior: OpenAPIRuntime.IterationBehavior
+        iterationBehavior: CandleOpenAPIRuntime.IterationBehavior
     ) { self.init([ArraySlice(bytes)], length: length, iterationBehavior: iterationBehavior) }
 
     /// Creates a new body with the provided byte collection.
@@ -301,7 +301,7 @@ extension HTTPBody {
     @inlinable public convenience init<Bytes: AsyncSequence>(
         _ sequence: Bytes,
         length: HTTPBody.Length,
-        iterationBehavior: OpenAPIRuntime.IterationBehavior
+        iterationBehavior: CandleOpenAPIRuntime.IterationBehavior
     ) where Bytes.Element == ByteChunk, Bytes: Sendable {
         self.init(.init(sequence), length: length, iterationBehavior: iterationBehavior)
     }
@@ -315,7 +315,7 @@ extension HTTPBody {
     @inlinable public convenience init<Bytes: AsyncSequence>(
         _ sequence: Bytes,
         length: HTTPBody.Length,
-        iterationBehavior: OpenAPIRuntime.IterationBehavior
+        iterationBehavior: CandleOpenAPIRuntime.IterationBehavior
     ) where Bytes: Sendable, Bytes.Element: Sequence & Sendable, Bytes.Element.Element == UInt8 {
         self.init(sequence.map { ArraySlice($0) }, length: length, iterationBehavior: iterationBehavior)
     }
@@ -458,7 +458,7 @@ extension HTTPBody {
     @inlinable public convenience init<Strings: AsyncSequence>(
         _ sequence: Strings,
         length: HTTPBody.Length,
-        iterationBehavior: OpenAPIRuntime.IterationBehavior
+        iterationBehavior: CandleOpenAPIRuntime.IterationBehavior
     ) where Strings.Element: StringProtocol & Sendable, Strings: Sendable {
         self.init(.init(sequence.map { ByteChunk.init($0) }), length: length, iterationBehavior: iterationBehavior)
     }

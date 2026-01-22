@@ -12,7 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-import HTTPTypes
+import CandleHTTPTypes
 #if canImport(Darwin)
 import struct Foundation.URL
 #else

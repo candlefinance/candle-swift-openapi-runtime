@@ -12,7 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-import HTTPTypes
+import CandleHTTPTypes
 import protocol Foundation.LocalizedError
 
 /// An error thrown by a server handling an OpenAPI operation.

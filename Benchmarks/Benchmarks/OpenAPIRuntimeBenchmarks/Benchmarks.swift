@@ -12,7 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 import Benchmark
-import OpenAPIRuntime
+import CandleOpenAPIRuntime
 import Foundation
 
 let benchmarks = {

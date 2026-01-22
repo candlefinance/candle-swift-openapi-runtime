@@ -11,7 +11,7 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 //===----------------------------------------------------------------------===//
-import HTTPTypes
+import CandleHTTPTypes
 #if canImport(Darwin)
 import struct Foundation.URL
 #else

@@ -13,7 +13,7 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import HTTPTypes
+import CandleHTTPTypes
 
 /// A raw multipart part containing the header fields and the body stream.
 public struct MultipartRawPart: Sendable, Hashable {

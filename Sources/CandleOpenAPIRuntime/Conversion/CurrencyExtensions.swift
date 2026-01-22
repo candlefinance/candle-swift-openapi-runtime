@@ -12,7 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 import Foundation
-import HTTPTypes
+import CandleHTTPTypes
 
 extension ParameterStyle {
 
