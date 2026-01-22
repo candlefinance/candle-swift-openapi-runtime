@@ -22,7 +22,7 @@ let swiftSettings: [SwiftSetting] = [
 ]
 
 let package = Package(
-    name: "candle-swift-openapi-runtime",
+    name: "swift-openapi-runtime",
     platforms: [
         .macOS(.v10_15), .macCatalyst(.v13), .iOS(.v13), .tvOS(.v13), .watchOS(.v6), .visionOS(.v1)
     ],
@@ -39,7 +39,7 @@ let package = Package(
         .target(
             name: "CandleOpenAPIRuntime",
             dependencies: [
-                .product(name: "CandleHTTPTypes", package: "candle-swift-http-types")
+                .product(name: "CandleHTTPTypes", package: "swift-http-types")
             ],
             swiftSettings: swiftSettings
         ),
