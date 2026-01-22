@@ -33,7 +33,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/candlefinance/swift-http-types", name: "candle-swift-http-types", branch: "fix-candle-1.3.1"),
+        .package(name: "candle-swift-http-types", url: "https://github.com/candlefinance/swift-http-types", branch: "fix-candle-1.3.1"),
     ],
     targets: [
         .target(
